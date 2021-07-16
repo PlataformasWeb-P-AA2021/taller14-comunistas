@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     #
     'administrativo',
+    'corsheaders',
     'rest_framework',
 ]
 
@@ -59,6 +60,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # add
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -149,5 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # agregar información para
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    # 'PAGE_SIZE': 10
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
